@@ -19,7 +19,7 @@ public class VkQueries implements VKApiMethods {
     public String generateRequestURL(int uid, String version, String method) {
         String request = "https://api.vk.com/method/" +
                 method + "?user_id=" + uid + "&v=" +
-                version +"&fields=first_name&fields=last_name&fields=city";
+                version +"&fields=first_name&fields=last_name&fields=city&fields=photo";
         return request;
     }
 }
