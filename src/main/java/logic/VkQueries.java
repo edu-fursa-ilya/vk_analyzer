@@ -17,9 +17,9 @@ public class VkQueries implements VKApiMethods {
 
     @Override
     public String generateRequestURL(int uid, String version, String method) {
-        String request = "https://api.vk.com/method/" +
+        String apiRequest = "https://api.vk.com/method/" +
                 method + "?user_id=" + uid + "&v=" +
                 version +"&fields=first_name&fields=last_name&fields=city&fields=photo";
-        return request;
+        return apiRequest;
     }
 }
