@@ -10,10 +10,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String uid = reader.readLine();
-
-        VkQueries vkQueries = new VkQueries();
-        System.out.println(vkQueries.getAllFriendsByUid(uid));
+        VkQueries queries = new VkQueries();
+        String query = queries.generateRequestURL(69687163, "5.52", "friends.get");
+        System.out.println(query);
     }
 }

@@ -8,26 +8,18 @@ import intf.VKApiMethods;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class VkQueries implements VKApiMethods {
-    private BufferedReader reader;
 
-    public String getAllFriendsByUid(String uid) throws Exception {
-        String query = "https://api.vk.com/method/friends.get?user_id=" + uid + "&v=5.52&fields=first_name&fields=photo";
-        URL url = new URL(query);
-        reader = new BufferedReader(new InputStreamReader(url.openStream()));
-
-        StringBuffer stringBuffer = new StringBuffer();
-        int read;
-        char[] characters = new char[1024];
-
-        while ((read = reader.read(characters)) != -1) {
-            stringBuffer.append(characters, 0, read);
-        }
-
-        return stringBuffer.toString();
+    @Override
+    public String generateRequestURL(int uid, String version, String method) {
+        String request = "https://api.vk.com/method/" +
+                method + "?user_id=" + uid + "&v=" +
+                version +"&fields=first_name&fields=last_name&fields=city";
+        return request;
     }
 }
